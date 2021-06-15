@@ -47,7 +47,7 @@ export const RightContent = styled.div`
 
 export const TableBody = styled.main`
   width: 100%;
-  max-height: calc(100vh - 140px);
+  height: 100%;
 
   background-color: ${(props) => props.theme.colors.white};
 
