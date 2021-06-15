@@ -1,4 +1,4 @@
-import styled from 'styled-components';
+import styled from "styled-components";
 
 export const Container = styled.div`
   height: 100%;
@@ -17,22 +17,21 @@ export const TableHeader = styled.div`
 export const LeftContent = styled.div`
   display: flex;
   align-items: center;
-`
+`;
 
 export const RightContent = styled.div`
   display: flex;
   align-items: center;
 
-
   > button {
     font-size: 11px;
     line-height: 12px;
     font-weight: 400;
-    
+
     text-transform: uppercase;
-    color: ${props => props.theme.colors.white};
+    color: ${(props) => props.theme.colors.white};
     background: transparent;
-    
+
     opacity: 0.9;
     padding-right: 25px;
 
@@ -46,16 +45,31 @@ export const RightContent = styled.div`
   }
 `;
 
-
 export const TableBody = styled.main`
   width: 100%;
-  height: 100%;
-  background-color: ${props => props.theme.colors.white};
+  max-height: calc(100vh - 140px);
+
+  background-color: ${(props) => props.theme.colors.white};
 
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-items: flex-start;
+  overflow-y: scroll;
+
+  &::-webkit-scrollbar {
+    width: 5px;
+  }
+
+  &::-webkit-scrollbar-track {
+    background: #d3d3d3;
+    border-radius: 0 3px 3px 0;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background-color: ${(props) => props.theme.colors.secondary};
+    border-radius: 0 3px 3px 0;
+  }
 `;
 
 export const TotalExpensesContainer = styled.div`
@@ -63,7 +77,7 @@ export const TotalExpensesContainer = styled.div`
   text-align: center;
   border-bottom: 1px solid #d9d9d9;
 
-  >h3 {
+  > h3 {
     font-size: 14.5px;
     font-weight: 400;
     text-transform: uppercase;
@@ -71,7 +85,7 @@ export const TotalExpensesContainer = styled.div`
   }
 
   > h2 {
-    font-family: 'Roboto Slab', serif;
+    font-family: "Roboto Slab", serif;
     font-size: 50px;
     font-weight: 300;
     line-height: 70px;
@@ -81,11 +95,11 @@ export const TotalExpensesContainer = styled.div`
     border-radius: 4px;
     text-align: center;
 
-    color: ${props => props.theme.colors.white};
-    background-color: ${props => props.theme.colors.tertiary};
-  
+    color: ${(props) => props.theme.colors.white};
+    background-color: ${(props) => props.theme.colors.tertiary};
+
     > span {
-      font-family: 'Roboto Slab', serif;
+      font-family: "Roboto Slab", serif;
       font-size: 35px;
       color: #8b8c8c;
       margin-right: 10px;
@@ -96,9 +110,8 @@ export const TotalExpensesContainer = styled.div`
 export const ExpensesTypes = styled.div`
   width: 100%;
   display: grid;
-	grid-template-columns: 1fr 1fr;
+  grid-template-columns: 1fr 1fr;
   border-bottom: 1px solid #d9d9d9;
-    
 
   > div {
     height: 73px;
@@ -108,7 +121,7 @@ export const ExpensesTypes = styled.div`
     align-items: flex-start;
     justify-items: flex-start;
 
-    >h4 {
+    > h4 {
       font-size: 10px;
       font-weight: 300;
       color: #8b8c8c;
@@ -116,20 +129,18 @@ export const ExpensesTypes = styled.div`
     }
 
     > h3 {
-      font-family: 'Roboto Slab', serif;
+      font-family: "Roboto Slab", serif;
       font-size: 28px;
-      font-weight: 300; 
-      color: ${props => props.theme.colors.black};
+      font-weight: 300;
+      color: ${(props) => props.theme.colors.black};
       padding-bottom: 5px;
 
-    > span {
-      font-family: 'Roboto Slab', serif;
-      font-size: 20px;
-      color: #8b8c8c;
-      margin-right: 5px;
-    }
-  
-
+      > span {
+        font-family: "Roboto Slab", serif;
+        font-size: 20px;
+        color: #8b8c8c;
+        margin-right: 5px;
+      }
     }
 
     &:first-child {
@@ -145,13 +156,13 @@ export const ExpensesTypes = styled.div`
       border-right: 1px solid #d9d9d9;
 
       > h3 {
-      color: ${props => props.theme.colors.warning};
+        color: ${(props) => props.theme.colors.warning};
       }
     }
 
     &:last-child {
       > h3 {
-      color: ${props => props.theme.colors.secondary};
+        color: ${(props) => props.theme.colors.secondary};
       }
     }
   }
@@ -163,27 +174,27 @@ export const CorporativeCard = styled.div`
   text-align: center;
   border-bottom: 1px solid #d9d9d9;
 
-  >h4 {
-      font-size: 10px;
-      font-weight: 300;
-      color: #8b8c8c;
-      text-transform: uppercase;
-    }
+  > h4 {
+    font-size: 10px;
+    font-weight: 300;
+    color: #8b8c8c;
+    text-transform: uppercase;
+  }
 
-    > h3 {
-      font-family: 'Roboto Slab', serif;
-      font-size: 28px;
-      font-weight: 300; 
-      color: ${props => props.theme.colors.black};
-      padding-bottom: 5px;
+  > h3 {
+    font-family: "Roboto Slab", serif;
+    font-size: 28px;
+    font-weight: 300;
+    color: ${(props) => props.theme.colors.black};
+    padding-bottom: 5px;
 
     > span {
-      font-family: 'Roboto Slab', serif;
+      font-family: "Roboto Slab", serif;
       font-size: 20px;
       color: #8b8c8c;
       margin-right: 5px;
     }
-    }
+  }
 `;
 
 export const CenterOfExpense = styled.div`
@@ -207,7 +218,7 @@ export const CenterOfExpense = styled.div`
 
 export const ExpenseContainer = styled.div`
   width: 100%;
-`
+`;
 
 export const ExpenseButton = styled.button`
   width: 100%;
@@ -220,7 +231,6 @@ export const ExpenseButton = styled.button`
   background-color: transparent;
   border-bottom: 1px solid #d9d9d9;
 
-
   > div {
     display: flex;
     align-items: center;
@@ -228,7 +238,7 @@ export const ExpenseButton = styled.button`
 
     > h2 {
       font-size: 15px;
-      color: ${props => props.theme.colors.black};
+      color: ${(props) => props.theme.colors.black};
     }
 
     > img {
@@ -239,18 +249,17 @@ export const ExpenseButton = styled.button`
   }
 
   > h3 {
-      font-family: 'Roboto Slab', serif;
-      font-size: 16px;
-      font-weight: 400; 
-      color: ${props => props.theme.colors.black};
+    font-family: "Roboto Slab", serif;
+    font-size: 16px;
+    font-weight: 400;
+    color: ${(props) => props.theme.colors.black};
 
     > span {
-      font-family: 'Roboto Slab', serif;
+      font-family: "Roboto Slab", serif;
       font-size: 12px;
       color: #8b8c8c;
       margin-right: 5px;
     }
-
   }
 `;
 
@@ -262,7 +271,6 @@ export const ExpenseList = styled.div`
 
   width: 100%;
   border-bottom: 1px solid #d9d9d9;
-
 `;
 
 export const ExpenseListItem = styled.div`
@@ -274,31 +282,27 @@ export const ExpenseListItem = styled.div`
   align-items: center;
   justify-content: space-between;
 
-
-  &:not(:last-child){
+  &:not(:last-child) {
     border-bottom: 1px solid #d9d9d9;
   }
-
 
   > h5 {
     font-size: 10px;
     font-weight: 300;
     text-transform: uppercase;
     color: #8b8c8c;
-  } 
+  }
 
   > h4 {
-    font-family: 'Roboto Slab', serif;
+    font-family: "Roboto Slab", serif;
     font-size: 13px;
     border: none;
     text-align: right;
     font-weight: 400;
 
     > span {
-    font-size: 10px;
-    margin-right: 5px;
-    } 
-
+      font-size: 10px;
+      margin-right: 5px;
+    }
   }
 `;
-
