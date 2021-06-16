@@ -5,6 +5,8 @@ import { listenEvent } from '@d3/utils'
 const AuthContext = createContext({});
 
 const AuthProvider = ({ children }) => {
+  const [isLoading, setIsLoading] = useState(false);
+  
   const [logged, setLogged] = useState(() => {
     const isLogged = localStorage.getItem('@d3-mfe-zag:logged');
 
@@ -12,12 +14,13 @@ const AuthProvider = ({ children }) => {
   });
 
   const signIn = (email, password) => {
-    if (email === 'paulo@d3.do' && password === '123') {
+    setIsLoading(true);
+   /* if (email === 'paulo@d3.do' && password === '123') {
       localStorage.setItem('@d3-mfe-zag:logged', 'true');
       setLogged(true);
     } else {
       alert('Senha ou usuário inválidos!');
-    }
+    }*/
   }
 
   const signOut = () => {
@@ -32,7 +35,7 @@ const AuthProvider = ({ children }) => {
   }, [])
 
   return (
-    <AuthContext.Provider value={{ logged, signIn, signOut }}>
+    <AuthContext.Provider value={{ logged, signIn, signOut, isLoading: isLoading }}>
       {children}
     </AuthContext.Provider>
   );
