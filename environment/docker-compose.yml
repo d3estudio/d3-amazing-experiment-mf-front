@@ -1,0 +1,37 @@
+version: "3"
+services:
+  single-spa:
+    build: ../single-spa
+    image: single-spa
+    ports:
+      - "80:80"
+  react-app-container:
+    build: ../react-app-container
+    image: react-app-container
+    ports:
+      - "8500:81"
+  react-menu:
+    build: ../react-menu
+    image: react-menu
+    ports:
+      - "8501:82"
+  react-title:
+    build: ../react-title
+    image: react-title
+    ports:
+      - "8502:83"
+  react-table-expenses:
+    build: ../react-table-expenses
+    image: react-table-expenses
+    ports:
+      - "8503:84"
+  react-total-expenses:
+    build: ../react-total-expenses
+    image: react-total-expenses
+    ports:
+      - "8505:85"
+  react-utils:
+    build: ../utils
+    image: utils
+    ports:
+      - "8506:86"
