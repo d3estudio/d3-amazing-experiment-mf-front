@@ -1,37 +1,53 @@
 version: "3"
+networks:
+  zag-app-network:
 services:
   single-spa:
     build: ../single-spa
     image: single-spa
     ports:
-      - "80:80"
+      - "9000:9000"
+    networks:
+      - zag-app-network
   react-app-container:
     build: ../react-app-container
     image: react-app-container
     ports:
-      - "8500:81"
+      - "8500:8080"
+    networks:
+      - zag-app-network
   react-menu:
     build: ../react-menu
     image: react-menu
     ports:
-      - "8501:82"
+      - "8501:8080"
+    networks:
+      - zag-app-network
   react-title:
     build: ../react-title
     image: react-title
     ports:
-      - "8502:83"
+      - "8502:8080"
+    networks:
+      - zag-app-network
   react-table-expenses:
     build: ../react-table-expenses
     image: react-table-expenses
     ports:
-      - "8503:84"
+      - "8503:8080"
+    networks:
+      - zag-app-network
   react-total-expenses:
     build: ../react-total-expenses
     image: react-total-expenses
     ports:
-      - "8505:85"
+      - "8505:8080"
+    networks:
+      - zag-app-network
   react-utils:
     build: ../utils
     image: utils
     ports:
-      - "8506:86"
+      - "8506:8080"
+    networks:
+      - zag-app-network
