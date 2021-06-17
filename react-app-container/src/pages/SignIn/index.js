@@ -21,8 +21,8 @@ const SignIn = () => {
         <h2>Bem-vindo ao Zag!</h2>
         <span>Para entrar, insira seu e-mail e senha</span>
       <form>
-        <input placeholder="Email" type="email"  onChange={(e) => setEmail(e.target.value)} value={email} />
-        <input placeholder="Senha" type="password"  onChange={(e) => setPassword(e.target.value)} value={password} />
+        <input placeholder="Email" type="email" required onChange={(e) => setEmail(e.target.value)} value={email} />
+        <input placeholder="Senha" type="password"  required onChange={(e) => setPassword(e.target.value)} value={password} />
         <S.Button isLoading={isLoading} type="button" onClick={() => signIn(email, password)}> {isLoading ? "" : "Entrar"}</S.Button>
       </form>
       <Link>Esqueceu sua senha?</Link>

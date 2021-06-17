@@ -6,8 +6,10 @@ import Camera from "../../assets/camera.svg";
 import Check from "../../assets/check.svg";
 import Credit from "../../assets/credit.svg";
 import Reject from "../../assets/reject.svg";
+import formatCurrency from "../../utils/formatCurrency";
+import getFormattedDate from "../../utils/getFormattedDate";
 
-const Modal = ({ isOpen, setIsOpen }) => {
+const Modal = ({ isOpen, setIsOpen, data }) => {
   return (
     <>
       <S.ModalContainer>
@@ -18,25 +20,25 @@ const Modal = ({ isOpen, setIsOpen }) => {
 
           <S.LeftContent>
             <header>
-              <h2>REEMBOLSO #9999</h2>
-              <h3>Data de lançamento: 08/06/21</h3>
+              <h2>REEMBOLSO #{data.id}</h2>
+              <h3>Data de lançamento: {getFormattedDate(data.created_at)}</h3>
             </header>
             <main>
               <S.Detail>
-                <span>Maisinha dos Santos</span>
-                <span>R$122,31</span>
+                <span>-</span>
+                <span>R${formatCurrency(data.value)}</span>
               </S.Detail>
               <S.Detail>
                 <span>Centro de custo</span>
-                <span>Sensia</span>
+                <span>-</span>
               </S.Detail>
               <S.Detail>
                 <span>Categoria</span>
-                <span>Viagem</span>
+                <span>-</span>
               </S.Detail>
             </main>
             <footer>
-              <p>Comentário...</p>
+              <p>{data.comment}</p>
             </footer>
           </S.LeftContent>
           <S.RightContent>

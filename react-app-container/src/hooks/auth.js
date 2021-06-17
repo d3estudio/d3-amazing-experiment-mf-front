@@ -1,5 +1,7 @@
 import React, { createContext, useState, useContext, useEffect } from "react";
-import { listenEvent } from "@d3/utils";
+import axios from "axios";
+
+import { listenEvent, emitEvent } from "@d3/utils";
 
 const AuthContext = createContext({});
 
@@ -12,19 +14,32 @@ const AuthProvider = ({ children }) => {
     return !!isLogged;
   });
 
-  const signIn = (email, password) => {
+  const signIn = async(email, password) => {
     setIsLoading(true);
-    if (email === "paulo@d3.do" && password === "123") {
+    
+    try {
+     
+      const response = await axios.post("http://localhost:3005/v1/login", { email:email, password:password });
+      const data = response.data; 
+      emitEvent('@d3/react-app-container/token', {token: data.token});
+
+      
       localStorage.setItem("@d3-mfe-zag:logged", "true");
+      localStorage.setItem("@d3-mfe-zag:data", JSON.stringify(data));
+      localStorage.setItem("@d3-mfe-zag:token", JSON.stringify(data.token));
+
       setLogged(true);
       setIsLoading(false);
-    } else {
-      alert("Senha ou usuário inválidos!");
+
+
+    } catch (error) {
+      setIsLoading(false);
+      alert("Email ou senha inválidos!"); 
     }
   };
 
   const signOut = () => {
-    localStorage.removeItem("@d3-mfe-zag:logged");
+    localStorage.clear();
     setLogged(false);
   };
 

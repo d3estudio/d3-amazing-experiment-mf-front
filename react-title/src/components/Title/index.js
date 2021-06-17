@@ -8,6 +8,7 @@ import SelectDate from '../SelectDate';
 import * as S from './styles';
 
 const Title = () => {
+
   return (
     <ThemeProvider theme={dark}>
       <GlobalStyles />

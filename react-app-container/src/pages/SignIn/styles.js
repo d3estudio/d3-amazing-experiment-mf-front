@@ -120,9 +120,4 @@ export const Button = styled.button`
     background: ${props => props.theme.colors.tertiary};
   }
 
-  ${props => props.isLoading &&   css`animation: ${rotate} 2s linear infinite;
-  border-bottom: none;
-  
-  `}
-
 `;

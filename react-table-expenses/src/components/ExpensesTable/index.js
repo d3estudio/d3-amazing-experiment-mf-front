@@ -1,4 +1,7 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
+
+import { listenEvent } from '@d3/utils';
+
 
 import SelectInput from "../SelectInput";
 import Modal from "../../components/Modal";
@@ -17,7 +20,20 @@ import Reject from "../../assets/reject.svg";
 
 import * as S from "./styles";
 
+import getFormattedDate from "../../utils/getFormattedDate";
+import formatCurrency from "../../utils/formatCurrency";
+
 const ExpensesTable = () => {
+const [refunds, setRefunds] = useState([])
+
+  useEffect(() => {
+    listenEvent("@d3/react-title/refunds", async(event) => {
+      setRefunds(event.detail.refunds)
+  
+      console.log("Refunds table", event.detail.refunds);
+      });
+  }, [])
+
   return (
     <ThemeProvider theme={dark}>
       <GlobalStyles />
@@ -61,7 +77,9 @@ const ExpensesTable = () => {
             <div />
             <div />
           </S.Separators>
-          <Item />
+          {refunds.length > 0 ? refunds.map(refund => (
+            <Item data={refund} />
+          )) : <h2>Por favor selecione uma data</h2> }
         </S.TableBody>
       </S.Container>
     </ThemeProvider>
@@ -70,43 +88,43 @@ const ExpensesTable = () => {
 
 export default ExpensesTable;
 
-const Item = () => {
+const Item = ({data}) => {
   const [isOpen, setIsOpen] = useState(false);
   return (
     <>
       <S.TableItem onClick={() => setIsOpen(true)}>
         <div className="id">
-          <span>#9999</span>
+          <span>#{data.id}</span>
         </div>
         <div className="date">
-          <span>08/06</span>
+          <span>{getFormattedDate(data.created_at).substring(0, 5)}</span>
         </div>
-        <div className="user">Maisinha dos Santos dfvdfgdfg</div>
+        <div className="user">-</div>
         <div className="centerOfExpense">
-          <span>Sensia</span>
+          <span>-</span>
         </div>
         <div className="category">
           <span>Viagem</span>
         </div>
         <div className="value">
-          <span>R$122,40</span>
+          <span>R${formatCurrency(data.value)}</span>
         </div>
         <div class="detail">
           <img src={Detail} alt="Chat icon" />
         </div>
         <div className="status">
-          <button>
+          <button disabled>
             <img src={Check} alt="Approve refund" />
-          </button>
-          <button>
+          </button >
+          <button disabled>
             <img src={Credit} alt="Credit" />
           </button>
-          <button>
+          <button disabled>
             <img src={Reject} alt="Reject refund" />
           </button>
         </div>
       </S.TableItem>
-      {isOpen && <Modal isOpen={isOpen} setIsOpen={setIsOpen} />}
+      {isOpen && <Modal isOpen={isOpen} setIsOpen={setIsOpen} data={data} />}
     </>
   );
 };

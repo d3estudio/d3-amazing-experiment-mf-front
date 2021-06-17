@@ -90,10 +90,10 @@ export const SelectDateModalList = styled.div`
    justify-content: flex-start;
 `;
 
-export const SelectDateModalListItem = styled.div`
+export const SelectDateModalListItem = styled.button`
    width: 100%;
    height: 36px;
-
+background-color: none;
    padding: 0 10px;
 
    display: flex;

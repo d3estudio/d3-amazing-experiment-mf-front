@@ -1,6 +1,8 @@
 import styled from "styled-components";
 
 export const Container = styled.div`
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,300;0,400;0,500;0,600;0,700;0,800;1,400;1,800&display=swap');
+
   height: 100%;
 `;
 
@@ -66,6 +68,8 @@ export const RightContent = styled.div`
 `;
 
 export const TableBody = styled.main`
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,300;0,400;0,500;0,600;0,700;0,800;1,400;1,800&display=swap');
+ 
   width: 100%;
   height: 100%;
 
@@ -76,6 +80,16 @@ export const TableBody = styled.main`
   background-color: ${(props) => props.theme.colors.white};
 
   overflow-y: auto;
+
+  h2 {
+    width: 100%;
+    text-align: center;
+
+    margin: 15px 0;
+    font-size: 12px;
+    font-weight: 300;
+    color: ${(props) => props.theme.colors.primary};
+  }
 
   &::-webkit-scrollbar {
     width: 5px;
@@ -187,6 +201,7 @@ export const TableItem = styled.button`
     justify-content: flex-end;
 
     button {
+      cursor: not-allowed;
       background-color: transparent;
       width: 45px;
       height: 50px;

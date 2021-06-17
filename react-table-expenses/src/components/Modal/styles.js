@@ -144,6 +144,7 @@ export const RightContentBottom = styled.div`
   > button {
     padding: 15px;
     border-radius: 3px;
+    cursor: not-allowed;
 
     background: transparent;
     border: 1px solid ${(props) => props.theme.colors.black};
