@@ -28,17 +28,31 @@
   <script type="systemjs-importmap">
     {
       "imports": {
-        "@d3/root-config": "http://amazing.d3.do:9000/d3-root-config.js",
-        "@d3/react-app-container": "http://amazing.d3.do:8500/d3-react-app-container.js",
-        "@d3/react-menu": "http://amazing.d3.do:8501/d3-react-menu.js",
-        "@d3/react-title": "http://amazing.d3.do:8502/d3-react-title.js",
-        "@d3/react-table-expenses": "http://amazing.d3.do:8503/d3-react-table-expenses.js",
-        "@d3/react-total-expenses": "http://amazing.d3.do:8505/d3-react-total-expenses.js",
-        "@d3/utils": "http://amazing.d3.do:8506/d3-utils.js"
+        "@d3/root-config": "//localhost:9000/d3-root-config.js",
+        "@d3/react-app-container": "//localhost:8500/d3-react-app-container.js",
+        "@d3/react-menu": "//localhost:8501/d3-react-menu.js",
+        "@d3/react-title": "//localhost:8502/d3-react-title.js",
+        "@d3/react-table-expenses": "//localhost:8503/d3-react-table-expenses.js",
+        "@d3/react-total-expenses": "//localhost:8505/d3-react-total-expenses.js",
+        "@d3/utils": "//localhost:8506/d3-utils.js"
       }
     }
   </script>
-  <% } %>
+  <% } else { %>
+    <script type="systemjs-importmap">
+      {
+        "imports": {
+          "@d3/root-config": "http://amazing.d3.do:9000/d3-root-config.js",
+          "@d3/react-app-container": "http://amazing.d3.do:8500/d3-react-app-container.js",
+          "@d3/react-menu": "http://amazing.d3.do:8501/d3-react-menu.js",
+          "@d3/react-title": "http://amazing.d3.do:8502/d3-react-title.js",
+          "@d3/react-table-expenses": "http://amazing.d3.do:8503/d3-react-table-expenses.js",
+          "@d3/react-total-expenses": "http://amazing.d3.do:8505/d3-react-total-expenses.js",
+          "@d3/utils": "http://amazing.d3.do:8506/d3-utils.js"
+        }
+      }
+    </script>
+  <% }  %>
 
   <script src="https://cdn.jsdelivr.net/npm/import-map-overrides@2.2.0/dist/import-map-overrides.js"></script>
   <% if (isLocal) { %>
